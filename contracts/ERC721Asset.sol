@@ -52,5 +52,5 @@ contract ERC721Asset is ERC721PresetMinterPauserAutoId
 		diamonds[tokenId].color   = color;
 	}
 
-	mapping (uint => Diamond) public diamonds;
+	mapping (uint => Diamond) internal diamonds;
 }
