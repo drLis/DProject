@@ -21,14 +21,16 @@ contract ERC721Asset is ERC721PresetMinterPauserAutoId
 
 	}
 
-	function mint
+	function mintToken
 		(address to, string calldata cut,
 			string calldata clarity, string calldata color,
 			string calldata carat, string calldata system,
 			string calldata tokenURI
 		) external
 	{
-		uint tokenId = totalSupply();
+		mint(to);
+
+		uint tokenId = totalSupply() - 1;
 		diamonds[tokenId].cut     = cut;
 		diamonds[tokenId].clarity = clarity;
 		diamonds[tokenId].color   = color;
@@ -36,8 +38,6 @@ contract ERC721Asset is ERC721PresetMinterPauserAutoId
 		diamonds[tokenId].system  = system;
 
 		_setTokenURI(tokenId, tokenURI);
-
-		this.mint(to);
 	}
 
 	function getDiamondInfoByTokenId(uint tokenId) public returns
