@@ -50,6 +50,8 @@ contract ERC721Asset is ERC721PresetMinterPauserAutoId
 		carat = diamonds[tokenId].carat;
 		system = diamonds[tokenId].system;
 		color = diamonds[tokenId].color;
+
+		return (cut, clarity, carat, system, color);
 	}
 
 	mapping (uint => Diamond) internal diamonds;
