@@ -40,16 +40,16 @@ contract ERC721Asset is ERC721PresetMinterPauserAutoId
 		_setTokenURI(tokenId, tokenURI);
 	}
 
-	function getDiamondInfoByTokenId(uint tokenId) public returns
+	function getDiamondInfoByTokenId(uint tokenId) public view returns
 		(string memory cut, string memory clarity,
 			string memory carat, string memory system,
 			string memory color)
 	{
-		diamonds[tokenId].cut     = cut;
-		diamonds[tokenId].clarity = clarity;
-		diamonds[tokenId].carat   = carat;
-		diamonds[tokenId].system  = system;
-		diamonds[tokenId].color   = color;
+		cut = diamonds[tokenId].cut;
+		clarity = diamonds[tokenId].clarity;
+		carat = diamonds[tokenId].carat;
+		system = diamonds[tokenId].system;
+		color = diamonds[tokenId].color;
 	}
 
 	mapping (uint => Diamond) internal diamonds;
